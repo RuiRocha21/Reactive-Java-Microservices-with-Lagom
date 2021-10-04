@@ -1,0 +1,5 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rui.rocha\Desktop\formação\blog\blog-impl\src\main\java\com\exercises\blog\impl\BlogServiceImpl.java:39:1: cannot find symbol[0m
+[0m[[0m[31merror[0m] [0m[0m  symbol:   class Logger[0m
+[0m[[0m[31merror[0m] [0m[0m  location: class com.exercises.blog.impl.BlogServiceImpl[0m
+[0m[[0m[31merror[0m] [0m[0m);[0m
+[0m[[0m[31merror[0m] [0m[0m[0m

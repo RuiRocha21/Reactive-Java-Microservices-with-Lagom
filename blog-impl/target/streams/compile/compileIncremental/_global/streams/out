@@ -1,0 +1,6 @@
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] IncrementalCompile -----------[0m
+[0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
+[0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 4 products, 8 sources, 12 libraries[0m
+[0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/blog-impl/src/main/java/com/exercises/blog/impl/BlogEventTag.java, ${BASE}/blog-impl/src/main/java/com/exercises/blog/impl/BlogServiceImpl.java, ${BASE}/blog-impl/src/main/java/com/exercises/blog/impl/BlogCommand.java, ${BASE}/blog-impl/src/main/java/com/exercises/blog/impl/BlogState.java, ${BASE}/blog-impl/src/main/java/com/exercises/blog/impl/BlogEvent.java, ${BASE}/blog-impl/src/main/java/com/exercises/blog/impl/BlogEntity.java, ${BASE}/blog-impl/src/main/java/com/exercises/blog/impl/BlogModule.java, ${BASE}/blog-impl/src/main/java/com/exercises/blog/impl/BlogEventProcessor.java)[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
