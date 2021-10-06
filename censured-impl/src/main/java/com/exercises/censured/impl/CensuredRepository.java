@@ -32,7 +32,7 @@ public class CensuredRepository {
         if (initializedSession == null || initializedSession.isCompletedExceptionally()) {
             initializedSession = uninitializedSession.executeCreateTable(
                     "CREATE TABLE IF NOT EXISTS postCensured ("
-                            + "id text, timestamp bigint, title text, body text, author text, "
+                            + "id text, timestamp text, title text, body text, author text, "
                             + "PRIMARY KEY (author, timestamp))"
             ).thenApply(done -> uninitializedSession).toCompletableFuture();
         }
@@ -52,14 +52,14 @@ public class CensuredRepository {
         ).thenApply(maybeRow -> maybeRow.map(row -> row.getString("author")));
     }
 
-    public CompletionStage<Done> updatePost(String title, String body,  String author,Instant timestamp) {
+    public CompletionStage<Done> updatePost(String title, String body,  String author,String timestamp) {
         return session().thenCompose(session ->
                 session.executeWrite("UPDATE postCensured set title = ?, body = ? where author = ? and timestamp = ?",
                         title, body,author, timestamp)
         );
     }
 
-    public CompletionStage<Done> deletePost( String author,Instant timestamp) {
+    public CompletionStage<Done> deletePost( String author,String timestamp) {
         return session().thenCompose(session ->
                 session.executeWrite("DELETE FROM postCensured WHERE author = ? and timestamp = ?",
                         author, timestamp)

@@ -143,7 +143,6 @@ public class BlogServiceImpl implements BlogService {
                             }else if(event instanceof BlogEvent.PostUpdated){
                                 BlogEvent.PostUpdated postUpdate = (BlogEvent.PostUpdated) event;
                                 eventToPublish = new BlogEventApi.PostUpdated(postUpdate.getTimestamp(),postUpdate.getContent());
-
                             }else if(event instanceof BlogEvent.PostDeleted){
                                 BlogEvent.PostDeleted postDelete = (BlogEvent.PostDeleted) event;
                                 eventToPublish = new BlogEventApi.PostDeleted(postDelete.getAuthor(), postDelete.getTimestamp());

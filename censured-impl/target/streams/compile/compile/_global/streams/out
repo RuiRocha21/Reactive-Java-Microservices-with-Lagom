@@ -1,3 +1,5 @@
-[0m[[0m[31merror[0m] [0m[0mC:\Users\rui.rocha\Desktop\formação\blog\censured-impl\src\main\java\com\exercises\censured\impl\CensuredSubscriber.java:59:1: incompatible types: java.lang.String[] cannot be converted to java.lang.String[0m
-[0m[[0m[31merror[0m] [0m[0mblacklist[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rui.rocha\Desktop\formação\blog\censured-impl\src\main\java\com\exercises\censured\impl\CensuredSubscriber.java:43:1: incompatible types: java.time.Instant cannot be converted to java.lang.String[0m
+[0m[[0m[31merror[0m] [0m[0maddUpdate.getTimestamp()[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\rui.rocha\Desktop\formação\blog\censured-impl\src\main\java\com\exercises\censured\impl\CensuredSubscriber.java:46:1: incompatible types: java.time.Instant cannot be converted to java.lang.String[0m
+[0m[[0m[31merror[0m] [0m[0maddDelete.getTimestamp()[0m
 [0m[[0m[0minfo[0m] [0m[0mSome messages have been simplified; recompile with -Xdiags:verbose to get full output[0m

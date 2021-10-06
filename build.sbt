@@ -43,6 +43,7 @@ lazy val `blog-impl` = (project in file("blog-impl"))
       assertj,
       lagomJavadslAkkaDiscovery,
       lombok,
+      vavr,
       hibernate,
       akkaDiscoveryKubernetesApi
     )
@@ -74,6 +75,7 @@ lazy val `censured-impl` = (project in file("censured-impl"))
       assertj,
       lagomJavadslAkkaDiscovery,
       lombok,
+      vavr,
       hibernate,
       akkaDiscoveryKubernetesApi
     )
@@ -85,11 +87,11 @@ lazy val `censured-impl` = (project in file("censured-impl"))
 
 val hamcrestLibrary = "org.hamcrest" % "hamcrest-library" % "2.1" % Test
 val lagomJavadslAkkaDiscovery = "com.lightbend.lagom" %% "lagom-javadsl-akka-discovery-service-locator" % LagomVersion.current
-val lombok = "org.projectlombok" % "lombok" % "1.18.8"
+val lombok = "org.projectlombok" % "lombok" % "1.18.10" % "provided"
 val hibernate = "org.hibernate" % "hibernate-core" % "5.2.12.Final"
 val assertj = "org.assertj" % "assertj-core" % "3.14.0"
 val akkaDiscoveryKubernetesApi = "com.lightbend.akka.discovery" %% "akka-discovery-kubernetes-api" % "1.0.10"
-
+val vavr = "io.vavr" % "vavr" % "0.10.4"
 
 def common = Seq(
   javacOptions in Compile += "-parameters"

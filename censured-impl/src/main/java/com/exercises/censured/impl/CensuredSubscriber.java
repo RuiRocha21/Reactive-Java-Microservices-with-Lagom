@@ -23,7 +23,7 @@ public class CensuredSubscriber {
         logger.info("Censured Subscriber");
         blogService.postTopic().subscribe()
                 .atLeastOnce(
-                        Flow.<BlogEventApi>create().mapAsync(1, event -> {
+                        Flow.<BlogEventApi>create().mapAsync(3, event -> {
                             if (event instanceof BlogEventApi.PostAdded) {
                                 BlogEventApi.PostAdded addPost = (BlogEventApi.PostAdded) event;
                                 String bodyCensurate = censurateBody(addPost.getContent().getBody());
@@ -39,10 +39,10 @@ public class CensuredSubscriber {
                                 return repository.updatePost(addUpdate.getContent().getTitle(),
                                         bodyCensurate,
                                         addUpdate.getContent().getAuthor(),
-                                        addUpdate.getTimestamp());
+                                        addUpdate.getTimestamp().toString());
                             }else if(event instanceof BlogEventApi.PostDeleted){
                                 BlogEventApi.PostDeleted addDelete = (BlogEventApi.PostDeleted) event;
-                                return repository.deletePost(addDelete.getAuthor(),addDelete.getTimestamp());
+                                return repository.deletePost(addDelete.getAuthor(),addDelete.getTimestamp().toString());
                             }else{
                                 return CompletableFuture.completedFuture(Done.getInstance());
                             }
@@ -53,19 +53,16 @@ public class CensuredSubscriber {
     private String censurateBody(String body) {
         ArrayList<String> lista = new ArrayList<String>();
         lista.add("shit");
+        lista.add("fuck off");
         lista.add("fuck");
         lista.add("bitch");
-        lista.add("fuck off");
-        String blacklist = "shit";
         String newBody = "";
-        //newBody = body.toLowerCase().replaceAll(blacklist, "*******");
         for (int i = 0; i<lista.size();i++){
-            for(int j = 0; j< body.length();j++){
                 if(body.contains(lista.get(i))){
-                    newBody = body.toLowerCase().replaceAll(lista.get(i), "[CENSURED]");
+                    body = body.toLowerCase().replaceAll(lista.get(i), "[CENSURED]");
                 }
-            }
         }
+        newBody = body;
         return newBody;
     }
 }

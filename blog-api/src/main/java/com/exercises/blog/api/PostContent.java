@@ -9,14 +9,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.Value;
+import lombok.With;
 
 @Immutable
 @JsonDeserialize
 @Value
 @Builder
-
+//@With
 @AllArgsConstructor(onConstructor = @__(@JsonCreator))
 public final class PostContent {
+
 
     @NonNull
     String title;

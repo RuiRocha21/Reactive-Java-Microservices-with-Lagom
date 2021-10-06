@@ -3,6 +3,7 @@ package com.exercises.blog.api;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import javax.annotation.concurrent.Immutable;
@@ -13,9 +14,11 @@ import lombok.Value;
 
 import java.time.Instant;
 
-@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type")
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "type", defaultImpl = Void.class)
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = BlogEventApi.PostAdded.class, name = "post-added")
+        @JsonSubTypes.Type(BlogEventApi.PostAdded.class),
+        @JsonSubTypes.Type(BlogEventApi.PostUpdated.class),
+        @JsonSubTypes.Type(BlogEventApi.PostDeleted.class)
 })
 public interface BlogEventApi {
 
@@ -23,6 +26,7 @@ public interface BlogEventApi {
     @JsonDeserialize
     @Value
     @AllArgsConstructor(onConstructor = @__(@JsonCreator))
+    @JsonTypeName(value = "post-added")
     final class PostAdded implements BlogEventApi {
         @NonNull
         String id;
@@ -35,6 +39,7 @@ public interface BlogEventApi {
     @Immutable
     @JsonDeserialize
     @Value
+    @JsonTypeName(value = "post-updated")
     @AllArgsConstructor(onConstructor = @__(@JsonCreator))
     final class PostUpdated implements BlogEventApi {
         @NonNull
@@ -46,6 +51,7 @@ public interface BlogEventApi {
     @Immutable
     @JsonDeserialize
     @Value
+    @JsonTypeName(value = "post-deleted")
     @AllArgsConstructor(onConstructor = @__(@JsonCreator))
     final class PostDeleted implements BlogEventApi {
         @NonNull
